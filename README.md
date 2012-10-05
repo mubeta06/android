@@ -1,4 +1,4 @@
 android
 =======
 
-SlidingPanel
+Repository containing my android shenanigans.
