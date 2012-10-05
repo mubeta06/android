@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class MainActivity extends Activity {
+public class SlidingPanelActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
