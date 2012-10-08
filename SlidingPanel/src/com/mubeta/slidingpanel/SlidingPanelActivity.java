@@ -13,17 +13,14 @@ public class SlidingPanelActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-      if (false) setContentView(R.layout.activity_main);
-      else {
-        ViewGroup decorView = (ViewGroup) getWindow().getDecorView();
-        View oldScreen = decorView.getChildAt(0);
-        decorView.removeViewAt(0);
-        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        SlidingPanel slidingPanel = (SlidingPanel) inflater.inflate(R.layout.screen_slider, null);
-        ((ViewGroup) slidingPanel.findViewById(R.id.anterior)).addView(oldScreen);
-        decorView.addView(slidingPanel, 0);
-        setContentView(R.layout.anterior);
-      }
+      ViewGroup decorView = (ViewGroup) getWindow().getDecorView();
+      View oldScreen = decorView.getChildAt(0);
+      decorView.removeViewAt(0);
+      LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+      SlidingPanel slidingPanel = (SlidingPanel) inflater.inflate(R.layout.screen_slider, null);
+      ((ViewGroup) slidingPanel.findViewById(R.id.anterior)).addView(oldScreen);
+      decorView.addView(slidingPanel, 0);
+      setContentView(R.layout.anterior);
     }
 
     @Override

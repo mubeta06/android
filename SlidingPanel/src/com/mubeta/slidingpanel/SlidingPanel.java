@@ -157,11 +157,13 @@ public class SlidingPanel extends FrameLayout implements OnGlobalLayoutListener 
    * @see #toggle()
    */
   public void animateClose() {
-    FrameLayout.LayoutParams parm = new FrameLayout.LayoutParams(-1, -1, 3);
-    parm.setMargins(0, 0, 0, 0);
-    getChildAt(1).setLayoutParams(parm);
-    getChildAt(1).startAnimation(mSlideClose);
-    setOpen(false);
+    if (getChildCount() == 2){
+      FrameLayout.LayoutParams parm = new FrameLayout.LayoutParams(-1, -1, 3);
+      parm.setMargins(0, 0, 0, 0);
+      getChildAt(1).setLayoutParams(parm);
+      getChildAt(1).startAnimation(mSlideClose);
+      setOpen(false);
+    }
   }
 
   /**
@@ -174,11 +176,13 @@ public class SlidingPanel extends FrameLayout implements OnGlobalLayoutListener 
    * @see #toggle()
    */
   public void animateOpen() {
-    FrameLayout.LayoutParams parm = new FrameLayout.LayoutParams(-1, -1, 3);
-    parm.setMargins(mXOffset, 0, -mXOffset, 0);
-    getChildAt(1).setLayoutParams(parm);
-    getChildAt(1).startAnimation(mSlideOpen);
-    setOpen(true);
+    if (getChildCount() == 2){
+      FrameLayout.LayoutParams parm = new FrameLayout.LayoutParams(-1, -1, 3);
+      parm.setMargins(mXOffset, 0, -mXOffset, 0);
+      getChildAt(1).setLayoutParams(parm);
+      getChildAt(1).startAnimation(mSlideOpen);
+      setOpen(true);
+    }
   }
   
   private void closePanel() {
