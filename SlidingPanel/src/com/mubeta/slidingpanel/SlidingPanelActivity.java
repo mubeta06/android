@@ -7,8 +7,11 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
+import android.view.Window;
+import android.widget.FrameLayout;
 
-public class SlidingPanelActivity extends Activity {
+public class SlidingPanelActivity extends Activity implements OnGlobalLayoutListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,7 @@ public class SlidingPanelActivity extends Activity {
         decorView.addView(slidingPanel, 0);
         setContentView(R.layout.anterior);
         findViewById(R.id.actuator).setVisibility(View.GONE);
+        decorView.getViewTreeObserver().addOnGlobalLayoutListener(this);
       }
       else
         setContentView(R.layout.activity_main);
@@ -33,5 +37,17 @@ public class SlidingPanelActivity extends Activity {
       getMenuInflater().inflate(R.menu.activity_main, menu);
       return true;
     }
+
+	@Override
+	public void onGlobalLayout() {
+	  /* adjust posterior view's offset so content is not obscured by title bar */
+	  View contentView = getWindow().findViewById(Window.ID_ANDROID_CONTENT);
+    View posterior = getWindow().findViewById(R.id.posterior);
+    int contentViewTop = contentView.getTop() + contentView.getPaddingTop();
+    FrameLayout.LayoutParams parm = new FrameLayout.LayoutParams(-1, -1, 3);
+    parm.setMargins(0, contentViewTop, 0, 0);
+    posterior.setLayoutParams(parm);
+    contentView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+	}
 
 }
