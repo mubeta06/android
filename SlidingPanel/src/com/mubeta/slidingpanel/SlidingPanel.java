@@ -3,7 +3,9 @@ package com.mubeta.slidingpanel;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -158,7 +160,9 @@ public class SlidingPanel extends FrameLayout implements OnGlobalLayoutListener 
    */
   public void animateClose() {
     if (getChildCount() == 2){
-      FrameLayout.LayoutParams parm = new FrameLayout.LayoutParams(-1, -1, 3);
+      FrameLayout.LayoutParams parm = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 
+                                                                    ViewGroup.LayoutParams.MATCH_PARENT, 
+                                                                    Gravity.LEFT);
       parm.setMargins(0, 0, 0, 0);
       getChildAt(1).setLayoutParams(parm);
       getChildAt(1).startAnimation(mSlideClose);
@@ -177,7 +181,9 @@ public class SlidingPanel extends FrameLayout implements OnGlobalLayoutListener 
    */
   public void animateOpen() {
     if (getChildCount() == 2){
-      FrameLayout.LayoutParams parm = new FrameLayout.LayoutParams(-1, -1, 3);
+      FrameLayout.LayoutParams parm = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 
+                                                                    ViewGroup.LayoutParams.MATCH_PARENT, 
+                                                                    Gravity.LEFT);
       parm.setMargins(mXOffset, 0, -mXOffset, 0);
       getChildAt(1).setLayoutParams(parm);
       getChildAt(1).startAnimation(mSlideOpen);

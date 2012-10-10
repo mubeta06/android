@@ -3,6 +3,7 @@ package com.mubeta.slidingpanel;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -44,7 +45,9 @@ public class SlidingPanelActivity extends Activity implements OnGlobalLayoutList
 	  View contentView = getWindow().findViewById(Window.ID_ANDROID_CONTENT);
     View posterior = getWindow().findViewById(R.id.posterior);
     int contentViewTop = contentView.getTop() + contentView.getPaddingTop();
-    FrameLayout.LayoutParams parm = new FrameLayout.LayoutParams(-1, -1, 3);
+    FrameLayout.LayoutParams parm = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 
+                                                                  ViewGroup.LayoutParams.MATCH_PARENT, 
+                                                                  Gravity.LEFT);
     parm.setMargins(0, contentViewTop, 0, 0);
     posterior.setLayoutParams(parm);
     contentView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
