@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- SlidingFrame specific attributes. These attributes are used to configure
+         a SlidingFrame from XML. -->
+    <declare-styleable name="SlidingFrame">
+        <!-- Identifier for the child that represents the Frame's actuator. -->
+        <attr name="actuator" format="reference" />
+        <!-- Specifies desired slide span for the Frame. -->
+        <attr name="slideSpan" format="dimension" />
+        <!-- Specifies desired slide time for the Frame. -->
+        <attr name="slideTime" format="integer" />
+        <!-- Indicates whether the Frame should be opened / closed with an animation
+             when the user clicks the actuator. Default is true. -->
+        <attr name="animateOnClick" format="boolean" />
+        <!-- Specifies the axis in which the slide will happen -->
+        <attr name="slideAxis">
+        	<flag name="x" value="0x01" />
+        	<flag name="y" value="0x02" />
+        </attr>
+    </declare-styleable>
+    
+</resources>

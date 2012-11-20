@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/posterior"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+        
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Posterior"
+        tools:ignore="HardcodedText" />
+    
+    
+    <com.mubeta.slidingframe.SlidingPanel xmlns:com.mubeta.slidingframe="http://schemas.android.com/apk/res/com.mubeta.slidingframe"
+    	xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:id="@+id/slider"
+    	com.mubeta.slidingframe:animateOnClick="true" >
+
+    	<TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:layout_gravity="left"
+    	    android:text="Some other content"
+    	    tools:ignore="HardcodedText" />
+    	
+    	<TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:layout_gravity="left"
+    	    android:text="Slider"
+    	    tools:ignore="HardcodedText" />
+
+	</com.mubeta.slidingframe.SlidingPanel>
+    
+        
+</RelativeLayout>

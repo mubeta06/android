@@ -1,4 +1,4 @@
-package com.mubeta.slidingpanel;
+package com.mubeta.slidingframe;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -7,12 +7,13 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.Window;
 import android.widget.FrameLayout;
 
-public class SlidingPanelActivity extends Activity implements OnGlobalLayoutListener {
+public class SlidingFrameActivity extends Activity implements OnGlobalLayoutListener, OnClickListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -22,15 +23,17 @@ public class SlidingPanelActivity extends Activity implements OnGlobalLayoutList
         View oldScreen = decorView.getChildAt(0);
         decorView.removeViewAt(0);
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        SlidingPanel slidingPanel = (SlidingPanel) inflater.inflate(R.layout.screen_slider, null);
-        ((ViewGroup) slidingPanel.findViewById(R.id.anterior)).addView(oldScreen);
-        decorView.addView(slidingPanel, 0);
+        SlidingFrame slidingFrame = (SlidingFrame) inflater.inflate(R.layout.screen_slider, null);
+        ((ViewGroup) slidingFrame.findViewById(R.id.anterior)).addView(oldScreen);
+        decorView.addView(slidingFrame, 0);
         setContentView(R.layout.anterior);
         findViewById(R.id.actuator).setVisibility(View.GONE);
         decorView.getViewTreeObserver().addOnGlobalLayoutListener(this);
       }
       else
         setContentView(R.layout.activity_main);
+      findViewById(R.id.posterior).setOnClickListener(this);
+      findViewById(R.id.anterior).setOnClickListener(this);
     }
 
     @Override
@@ -52,5 +55,14 @@ public class SlidingPanelActivity extends Activity implements OnGlobalLayoutList
     posterior.setLayoutParams(parm);
     contentView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
 	}
+
+  @Override
+  public void onClick(View v) {
+    if (v.getId() == R.id.posterior) {
+      ((SlidingFrame) findViewById(R.id.slider)).animateToggle();
+    }
+    else if (v.getId() == R.id.anterior)
+      ((SlidingFrame) findViewById(R.id.slidingframe)).animateToggle();
+  }
 
 }

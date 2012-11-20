@@ -4,6 +4,7 @@
     android:id="@id/anterior"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="left"
     android:background="#FFFFFFFF"
     android:orientation="vertical" >
         
@@ -11,7 +12,7 @@
         android:id="@id/actuator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Actuator Button"
+        android:text="Actuator"
         tools:ignore="HardcodedText" />
     
     <TextView

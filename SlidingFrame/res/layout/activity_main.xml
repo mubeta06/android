@@ -1,15 +1,15 @@
-<com.mubeta.slidingpanel.SlidingPanel xmlns:com.mubeta.slidingpanel="http://schemas.android.com/apk/res/com.mubeta.slidingpanel"
+<com.mubeta.slidingframe.SlidingFrame xmlns:com.mubeta.slidingframe="http://schemas.android.com/apk/res/com.mubeta.slidingframe"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    com.mubeta.slidingpanel:actuator="@+id/actuator"
-    com.mubeta.slidingpanel:slideSpan="0dip"
-    com.mubeta.slidingpanel:animateOnClick="true" >
+    com.mubeta.slidingframe:actuator="@+id/actuator"
+    com.mubeta.slidingframe:animateOnClick="true"
+    android:id="@+id/slidingframe" >
     
     <include  layout="@layout/posterior" android:id="@+id/posterior" />
     
     <include  layout="@layout/anterior" android:id="@+id/anterior" />
         
-</com.mubeta.slidingpanel.SlidingPanel>
+</com.mubeta.slidingframe.SlidingFrame>
 
